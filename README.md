@@ -30,6 +30,7 @@ venv\Scripts\activate     # Windows
 
 ## Usage
 
+```python
 from json_api import dumps, loads
 
 data = {"hello": "world", "numbers": [1, 2, 3]}
@@ -38,6 +39,7 @@ print(json_str)
 
 obj = loads(json_str)
 print(obj)
+```
 
 ## Contributing
 
