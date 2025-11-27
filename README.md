@@ -2,21 +2,22 @@
 
 A simple Python project implementing a custom JSON tokenizer, parser, and serializer. Optional GUI demo for visualization.
 
-## Project Status
+## Architecture
 
-**Completed**
-- Repository and environment setup
-- MIT license integration
-- Tokenizer design
+json_engine_project/
+├── json_engine/
+│ ├── init.py # package initializer and API export
+│ ├── tokenizer.py # core tokenizer implementation
+│ ├── parser.py # core parser implementation
+│ ├── encoder.py # JSON encoder / serializer
+│ └── api.py # public API: loads, dumps, load, dump
+├── tests/
+│ ├── test_tokenizer.py # basic unit tests for tokenizer
+│ └── test_parser.py # basic unit tests for parser
+├── README.md
+└── LICENSE
 
-**In Progress**
-- Core parser
-- JSON traversal module
-
-**Planned**
-- Public API usability
-- Benchmarking and performance tests
-- Optional GUI demo
+This structure separates core modules, unit tests, and documentation, preparing the project for further extension (JSON traversal, benchmarking, GUI demo, etc.).
 
 ## Installation
 
