@@ -44,8 +44,9 @@ obj = loads(json_str)
 print(obj)
 ```
 
-```bash
 ## Run tests
+
+```bash
 python -m pytest -q
 python -m pytest tests/test_tokenizer.py  # example test
 ```
