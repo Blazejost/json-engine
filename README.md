@@ -4,6 +4,7 @@ A simple Python project implementing a custom JSON tokenizer, parser, and serial
 
 ## Architecture
 
+```text
 json_engine_project/
 ├── json_engine/
 │ ├── init.py # package initializer and API export
@@ -16,6 +17,7 @@ json_engine_project/
 │ └── test_parser.py # basic unit tests for parser
 ├── README.md
 └── LICENSE
+```
 
 This structure separates core modules, unit tests, and documentation, preparing the project for further extension (JSON traversal, benchmarking, GUI demo, etc.).
 
