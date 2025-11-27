@@ -1,4 +1,4 @@
-from tokenizer import tokenize, TokenizeError
+from json_engine.tokenizer import tokenize, TokenizeError
 
 
 def test_simple_json():
