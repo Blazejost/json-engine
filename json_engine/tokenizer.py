@@ -1,6 +1,7 @@
 import re
 from typing import Generator
 
+
 class Token:
     def __init__(self, type_: str, value: str, line: int, column: int):
         self.type = type_
