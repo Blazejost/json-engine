@@ -1,6 +1,9 @@
 from typing import Any, TextIO
 from .parser import JSONDecoder
 from .encoder import JSONEncoder
+from .tokenizer import TokenizeError as JSONError   # <-- добавлено
+
+__all__ = ["loads", "dumps", "load", "dump", "JSONError"]
 
 
 def loads(s: str, trace: bool = False) -> Any:
