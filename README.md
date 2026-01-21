@@ -24,7 +24,7 @@ This structure separates core modules, unit tests, and documentation, preparing 
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/custom-json-engine.git
+git clone https://github.com/Blazejost/custom-json-engine.git
 cd custom-json-engine
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
