@@ -12,8 +12,25 @@ class JSONEncoder:
         if isinstance(obj, float):
             return str(obj)
         if isinstance(obj, str):
-            esc = obj.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
-            return f'"{esc}"'
+            esc_map = {
+                "\\": "\\\\",
+                '"': '\\"',
+                "\n": "\\n",
+                "\r": "\\r",
+                "\t": "\\t",
+                "\b": "\\b",
+                "\f": "\\f",
+                "'": "\\u0027",
+            }
+            out = []
+            for ch in obj:
+                if ch in esc_map:
+                    out.append(esc_map[ch])
+                elif ord(ch) < 0x20:
+                    out.append(f"\\u{ord(ch):04x}")
+                else:
+                    out.append(ch)
+            return f'"{"".join(out)}"'
         if isinstance(obj, list):
             return "[" + ", ".join(self.encode(x) for x in obj) + "]"
         if isinstance(obj, dict):

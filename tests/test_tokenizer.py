@@ -180,13 +180,11 @@ class TestComplexStructures:
         tokens = list(tokenize('[{"a": 1}, {"b": 2}]'))
         assert tokens[0].type == "["
         assert tokens[-1].type == "]"
-        assert len([t for t in tokens if t.type == ","]) >= 2
+        assert len([t for t in tokens if t.type == ","]) >= 1
 
     def test_mixed_types(self):
         tokens = list(tokenize('[1, "str", true, false, null, 3.14]'))
-        types = [
-            t.type for t in tokens if t.type != "," and t.type != "[" and t.type != "]"
-        ]
+        types = [t.type for t in tokens if t.type != "," and t.type != "[" and t.type != "]"]
         assert "NUMBER" in types
         assert "STRING" in types
         assert "TRUE" in types
