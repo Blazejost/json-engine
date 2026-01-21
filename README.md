@@ -1,40 +1,35 @@
 # Custom JSON Engine
 
-A simple Python project implementing a custom JSON tokenizer, parser, and serializer. Optional GUI demo for visualization.
+Custom JSON tokenizer, parser, and encoder with a CLI demo, benchmarking, and comprehensive tests.
 
-## Architecture
+## Project Structure
 
 ```text
-json_engine_project/
-├── json_engine/
-│ ├── init.py # package initializer and API export
-│ ├── tokenizer.py # core tokenizer implementation
-│ ├── parser.py # core parser implementation
-│ ├── encoder.py # JSON encoder / serializer
-│ └── api.py # public API: loads, dumps, load, dump
-├── tests/
-│ ├── test_tokenizer.py # basic unit tests for tokenizer
-│ └── test_parser.py # basic unit tests for parser
-├── README.md
-└── LICENSE
+json-engine/
+├── json_engine/              # Core package
+│   ├── __init__.py
+│   ├── tokenizer.py
+│   ├── parser.py
+│   ├── encoder.py
+│   └── api.py
+├── tests/                    # Unit + integration tests
+├── documentation/            # Project docs and diagrams
+├── benchmark_compare.py      # Benchmark vs stdlib/orjson
+├── main.py                   # CLI demo
+├── pyproject.toml
+└── README.md
 ```
 
-This structure separates core modules, unit tests, and documentation, preparing the project for further extension (JSON traversal, benchmarking, GUI demo, etc.).
-
-## Installation
+## Setup (uv recommended)
 
 ```bash
-git clone https://github.com/Blazejost/json-engine.git
-cd json-engine
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+uv sync --extra dev
 ```
 
-## Usage
+## Usage (Python API)
 
 ```python
-from json_api import dumps, loads
+from json_engine.api import dumps, loads
 
 data = {"hello": "world", "numbers": [1, 2, 3]}
 json_str = dumps(data)
@@ -44,17 +39,45 @@ obj = loads(json_str)
 print(obj)
 ```
 
-## Run tests
+## CLI Demo ("WOW")
 
 ```bash
-python -m pytest -q
-python -m pytest tests/test_tokenizer.py  # example test
+# Interactive mode
+uv run python main.py --demo
+
+# Samples
+uv run python main.py --samples
+
+# Parse JSON from CLI
+uv run python main.py --parse '{"a": 1, "b": [true, null]}'
+
+# Show tokenizer output
+uv run python main.py --parse '{"a": 1}' --tokens
 ```
 
-## Contributing
+## Tests
 
-Feel free to fork the project and submit pull requests.
-Focus on tokenizer, parser, traversal, tests, benchmarking, and GUI demo.
+```bash
+uv run pytest -v
+```
+
+## Coverage Report (HTML)
+
+```bash
+uv run pytest --cov=json_engine --cov-report=html
+xdg-open htmlcov/index.html
+```
+
+## Benchmark
+
+```bash
+uv run python benchmark_compare.py --size 2000 --iterations 300
+```
+
+## Documentation
+
+- Project structure and design: [documentation/PROJECT_STRUKTURA.md](documentation/PROJECT_STRUKTURA.md)
+- Testing guide: [documentation/README_TESTING.md](documentation/README_TESTING.md)
 
 ## License
 
